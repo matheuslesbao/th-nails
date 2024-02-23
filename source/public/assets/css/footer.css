@@ -1,0 +1,55 @@
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--footer-background-color);
+    color: var(--text-color);
+    padding: 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para lidar com o layout responsivo */
+    gap: 10px;
+}
+
+.footer-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav ul li {
+    display: inline;
+    margin-right: 2em;
+}
+
+.footer-nav ul li:last-child {
+    margin-right: 0; /* Remove a margem do último item */
+}
+
+.footer-nav ul li a {
+    text-decoration: none;
+    color: var(--text-color-links);
+}
+
+/* Estilos para dispositivos menores */
+@media screen and (max-width: 600px) {
+    footer {
+        padding: 3vw;
+        gap: 5px;
+    }
+    .footer-content {
+        flex-direction: column; /* Coloca os elementos em uma coluna */
+        align-items: flex-start; /* Alinha os itens à esquerda */
+        gap: 7px;
+    }
+
+    .footer-nav ul li {
+        display: block;
+        margin-bottom: 10px; /* Adiciona espaço entre os itens */
+    }
+}

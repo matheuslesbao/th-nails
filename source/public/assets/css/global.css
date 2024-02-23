@@ -1,0 +1,38 @@
+:root {
+    /* Cores principais */
+    --primary-color: #fff ;
+    
+     /* Cores de fundo */
+    --body-backgroud-color: #6e3838 ;
+    --header-background-color: #c46060;
+    --footer-background-color: #c46060;
+    --menu-background-color: #333;
+    /* Cores de texto */
+    --text-color: #fff;
+    --text-color-links: #fff ;
+    /* Cores de status sucesso, aviso e erro*/
+    --status-sucess: #28a745;
+    --status-error: #dc3545;
+
+    --font-base: 0.8vw;
+}
+
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Evita problemas de layout devido ao padding e border */
+}
+
+/* Estilos adicionais */
+body {
+    transition: display 0.3s ease;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: var(--body-backgroud-color);
+}
+
+/* Outras regras de estilo personalizadas */
+/* ... */
