@@ -5,16 +5,16 @@ version: '3.1'
 services:
     mysql:
         image: 'mysql:8.0'
+        container_name: db_docker
         working_dir: /app
         volumes:
             - '.:/app'
         environment:
             - MYSQL_ROOT_PASSWORD=passroot
-            - MYSQL_DATABASE=facu01
-            - MYSQL_USER=alunos
-            - MYSQL_PASSWORD=password
+            - MYSQL_DATABASE=th_nails
+            - MYSQL_USER=alphard
         ports:
-            - '23002:3306'
+            - '8002:3306'
 
     webserver:
         image: 'nginx:alpine'
@@ -22,8 +22,10 @@ services:
         volumes:
             - '.:/app'
             - './phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf'
+        depends_on:
+            - mysql
         ports:
-            - '23000:80'
+            - '8000:80'
 
     php-fpm:
         build: phpdocker/php-fpm
