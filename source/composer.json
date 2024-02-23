@@ -1,0 +1,16 @@
+{
+    "name": "facu/application",
+    "description": "Projeto da faculdade",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },"authors": [
+        {
+            "name": ""
+        }
+    ],
+    "require": {
+        "league/plates": "^3.5"
+    }
+}
