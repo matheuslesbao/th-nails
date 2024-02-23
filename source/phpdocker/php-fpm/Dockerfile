@@ -7,7 +7,6 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
-RUN docker-php-ext-install pdo_mysql
 # UPDATE APT-GET AND INSTALL LIBS
 RUN apt-get update -y
 RUN apt-get install -y openssl zip unzip git libnss3 libpng-dev
