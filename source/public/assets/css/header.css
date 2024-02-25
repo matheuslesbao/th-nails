@@ -1,11 +1,15 @@
 header {
     background-color: var(--header-background-color);
 }
+
 .menu {
     display: grid;
-    grid-template-columns: 1fr auto; /* Uma fração para o logo e o restante para os links */
-    align-items: center; /* Centraliza verticalmente */
-    padding: 2vh 5vw; /* Utilizando VH e VW para o espaçamento */
+    grid-template-columns: 1fr auto;
+    /* Uma fração para o logo e o restante para os links */
+    align-items: center;
+    /* Centraliza verticalmente */
+    padding: 2vh 5vw;
+    /* Utilizando VH e VW para o espaçamento */
     background-color: var(--header-background-color);
 }
 
@@ -16,8 +20,10 @@ header {
 
 .links {
     display: grid;
-    grid-template-columns: repeat(2, auto); /* Quatro colunas com largura automática */
-    gap: 5vw; /* Espaçamento entre os links em VW */
+    grid-template-columns: repeat(2, auto);
+    /* Quatro colunas com largura automática */
+    gap: 5vw;
+    /* Espaçamento entre os links em VW */
     list-style-type: none;
     padding: 0;
 }
@@ -26,7 +32,9 @@ header {
     text-decoration: none;
     color: var(--text-color-links);
 }
-.menu-hamburger, #menu-toggle {
+
+.menu-hamburger,
+#menu-toggle {
     display: none;
     width: 50px;
     height: 50px;
@@ -40,31 +48,37 @@ header {
 /* Estilos para quando a tela é pequena (responsivo) */
 @media screen and (max-width: 600px) {
     .menu-hamburger {
-        display: block; 
+        display: block;
 
         transition: transform 0.5s;
     }
-  
+
     .rotated {
-        transform: rotate(90deg); /* Aplica a rotação */
+        transform: rotate(90deg);
+        /* Aplica a rotação */
     }
 
     .menu {
-        display: none; /* Oculta o menu na visualização padrão */
-        grid-column: 1 / -1; /* Ocupa todas as colunas */
+        display: none;
+        /* Oculta o menu na visualização padrão */
+        grid-column: 1 / -1;
+        /* Ocupa todas as colunas */
         grid-template-columns: auto;
     }
 
     /* Exibe o menu quando o menu hamburguer é clicado */
-    #menu-toggle:checked + .menu-hamburger + .menu {
+    #menu-toggle:checked+.menu-hamburger+.menu {
         display: grid;
-        
+
     }
 
     .menu ul {
-        grid-template-columns: 1fr; /* Uma coluna para dispositivos pequenos */
-        justify-items: start; /* Centraliza horizontalmente */
-        text-align: start; /* Alinha o texto ao centro */
+        grid-template-columns: 1fr;
+        /* Uma coluna para dispositivos pequenos */
+        justify-items: start;
+        /* Centraliza horizontalmente */
+        text-align: start;
+        /* Alinha o texto ao centro */
     }
 
     .links {
@@ -72,4 +86,66 @@ header {
         gap: 1vw;
         justify-content: center;
     }
+}
+
+/* Section slideshow */
+.slideshow-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.mySlides {
+    display: none;
+}
+
+.mySlides img {
+    max-width: 100%;
+}
+
+.fade {
+    /* Tempo sincronizado junto ao slideshow.js */
+    animation: fadeEffect 11s ease-in-out ;
+}
+
+
+@keyframes fadeEffect {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    20%,
+    80% {
+        opacity: 1;
+    }
+}
+
+/* Botões de navegação */
+.controlers{
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    
+}
+.prev,
+.next {
+    position: relative;
+    top: 50%;
+    margin-top: -150px;
+    padding: 16px 20px;
+    color: var(--text-color-links);
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 9999;
+
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
 }
