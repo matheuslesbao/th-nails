@@ -25,10 +25,10 @@ main {
     width: 100%;
     display: flex;
     text-align: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     height: 350px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     align-content: space-between;
     flex-direction: column
   }
