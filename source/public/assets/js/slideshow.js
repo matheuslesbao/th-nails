@@ -21,4 +21,4 @@ function showSlides(n) {
 setInterval(function() { 
     document.querySelector('.next').click();
     // Tempo sincronizado junto a class fade no header.css
-} , 5000);
+} , 10000);

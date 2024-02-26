@@ -1,4 +1,5 @@
-<?php $this->layout('principal', ['title' => 'Home']) ?>
+<?php $this->layout('principal', ['title' => 'Home', 'style' => 'home']) ?>
 
-
-HOME
+<section>
+    
+</section>

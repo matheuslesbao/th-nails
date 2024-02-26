@@ -1,38 +1,36 @@
 header {
     background-color: var(--header-background-color);
+    padding-top: 3px;
 }
-
 .menu {
+    position: fixed;
     display: grid;
+    width: 100%;
     grid-template-columns: 1fr auto;
-    /* Uma fração para o logo e o restante para os links */
-    align-items: center;
-    /* Centraliza verticalmente */
-    padding: 2vh 5vw;
-    /* Utilizando VH e VW para o espaçamento */
+    padding: 7px;
     background-color: var(--header-background-color);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    align-items: center;
+    letter-spacing: 0.5vw;
+   
 }
-
 .logo {
     font-size: 1.5rem;
-    color: var();
+    color: var(--text-color);
+    
 }
-
 .links {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    /* Quatro colunas com largura automática */
-    gap: 5vw;
-    /* Espaçamento entre os links em VW */
+    gap: 3vw;
     list-style-type: none;
-    padding: 0;
 }
-
 .links li a {
     text-decoration: none;
     color: var(--text-color-links);
+    cursor: pointer;
+    padding: 7px;
 }
-
 .menu-hamburger,
 #menu-toggle {
     display: none;
@@ -43,90 +41,71 @@ header {
     color: var(--menu-background-color);
     cursor: pointer;
 }
-
-
 /* Estilos para quando a tela é pequena (responsivo) */
 @media screen and (max-width: 600px) {
     .menu-hamburger {
         display: block;
-
         transition: transform 0.5s;
     }
-
     .rotated {
         transform: rotate(90deg);
-        /* Aplica a rotação */
     }
-
     .menu {
         display: none;
-        /* Oculta o menu na visualização padrão */
-        grid-column: 1 / -1;
-        /* Ocupa todas as colunas */
         grid-template-columns: auto;
+        width: 50vw;
+        height: 30vh;
+        z-index: 2;
+        justify-items: center;
+        align-content: space-evenly;
+        border-bottom-right-radius: 20px;
+        text-align: center;
     }
-
     /* Exibe o menu quando o menu hamburguer é clicado */
     #menu-toggle:checked+.menu-hamburger+.menu {
         display: grid;
-
+        transform: translateX(0);
     }
-
     .menu ul {
         grid-template-columns: 1fr;
-        /* Uma coluna para dispositivos pequenos */
-        justify-items: start;
-        /* Centraliza horizontalmente */
-        text-align: start;
-        /* Alinha o texto ao centro */
     }
-
-    .links {
-        grid-template-columns: repeat(2, auto);
-        gap: 1vw;
-        justify-content: center;
+    .menu ul li {
+        margin: 8px;
     }
 }
-
 /* Section slideshow */
 .slideshow-container {
+    padding-top: 70px;
     position: relative;
     overflow: hidden;
+    margin: 49px 10px;
 }
-
 .mySlides {
     display: none;
 }
-
 .mySlides img {
     max-width: 100%;
 }
-
 .fade {
     /* Tempo sincronizado junto ao slideshow.js */
-    animation: fadeEffect 11s ease-in-out ;
+    animation: fadeEffect 22s;
 }
-
-
 @keyframes fadeEffect {
 
     0%,
     100% {
         opacity: 0;
     }
-
     20%,
     80% {
         opacity: 1;
     }
 }
-
 /* Botões de navegação */
-.controlers{
+.controlers {
     display: flex;
     gap: 5px;
     justify-content: space-between;
-    
 }
 .prev,
 .next {
@@ -136,16 +115,19 @@ header {
     padding: 16px 20px;
     color: var(--text-color-links);
     font-weight: bold;
-    font-size: 20px;
+    font-size: calc(var(--font-base) + 5.2px);
     cursor: pointer;
-    z-index: 9999;
-
+    z-index: 4;
 }
-
 .prev {
     left: 0;
 }
-
 .next {
     right: 0;
+}
+@media screen and (max-width: 600px) {
+    .slideshow-container {
+        padding-top: 50px;
+        z-index: 1;
+    }
 }

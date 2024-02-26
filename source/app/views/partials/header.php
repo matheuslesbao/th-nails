@@ -5,7 +5,7 @@
 
 
     <nav class="menu">
-        <div class="logo">Logo</div>
+        <div class="logo">Thamires Guimarães</div>
         <ul class="links">
             <li><a href="#">Home</a></li>
             <li><a href="#">Contato</a></li>
@@ -17,12 +17,12 @@
 
     <div class="mySlides fade">
         
-        <img src="/assets/img/nails.jpg" alt="unhas sendo feita" width="100%" height="250px">
+        <img src="/assets/img/teste2.webp" alt="unhas sendo feita" width="100%" height="250px">
 
     </div>
 
     <div class="mySlides fade">
-        <img src="/assets/img/agendeja.jpg" alt="agenda" width="100%" height="250px">
+        <img src="/assets/img/teste.webp" alt="agenda" width="100%" height="250px">
     </div>
 
     <div class="mySlides fade">
