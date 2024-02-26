@@ -5,6 +5,7 @@ header {
     width: 100%;
     position: fixed;
 }
+
 .menu {
     position: fixed;
     display: grid;
@@ -16,6 +17,7 @@ header {
     align-items: center;
     letter-spacing: 0.5vw;
     z-index: 2;
+    min-width: 142px;
 }
 .logo {
     font-size: 1.5rem;
@@ -26,6 +28,7 @@ header {
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 3vw;
+    align-items: center;
     list-style-type: none;
 }
 .links li a {
@@ -34,6 +37,58 @@ header {
     cursor: pointer;
     padding: 7px;
 }
+/* Whatsapp BTN */
+.whatsapp-button {
+    background-color: #25d366; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto */
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.7s;
+  }
+  
+  .whatsapp-button:hover {
+    background-color: #128c7e;
+  }
+  
+  .whatsapp-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg');
+    background-size: cover;
+  }
+  
+  .whatsapp-text {
+    margin-left: 12px;
+  }
+  
+  .whatsapp-button::before {
+    content: '';
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.2);
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 1.2s;
+    pointer-events: none;
+  }
+  
+  .whatsapp-button:hover::before {
+    transform: translate(-50%, -50%) scale(3);
+  }
+  /* Menu burguer */
 .menu-hamburger,
 #menu-toggle {
     display: none;

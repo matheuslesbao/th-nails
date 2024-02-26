@@ -8,7 +8,10 @@
         <div class="logo">Thamires Guimarães</div>
         <ul class="links">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Contato</a></li>
+            <li><button class="whatsapp-button">
+                    <span class="whatsapp-icon"></span>
+                    <a class="whatsapp-text">Whatsapp</a>
+                </button></li>
         </ul>
     </nav>
 </header>
@@ -16,7 +19,7 @@
 <section class="slideshow-container">
 
     <div class="mySlides fade">
-        
+
         <img src="/assets/img/teste2.webp" alt="unhas sendo feita" width="100%" height="250px">
 
     </div>
