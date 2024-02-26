@@ -7,7 +7,7 @@
     <nav class="menu">
         <div class="logo">Thamires Guimarães</div>
         <ul class="links">
-            <li><a href="#">Home</a></li>
+            <li><a href="#">Inicio</a></li>
             <li><button class="whatsapp-button">
                     <span class="whatsapp-icon"></span>
                     <a class="whatsapp-text">Whatsapp</a>
