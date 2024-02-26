@@ -22,21 +22,35 @@
     --font-custom2: "Shrikhand", serif;
     --font-logo: ;
 }
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Cores principais */
+        --primary-color: #add8e6b6; 
+        --secondary-color: #ADD8E6;
+         /* Cores de fundo */
+        --body-backgroud-color: #333;
+        --body2-backgroud-color: #333;
+        --header-background-color: #ADD8E6;
+        --footer-background-color:  #ADD8E6;
+        --menu-background-color: #333;
+        /* Cores de texto */
+        --text-color:#FFFAF0;
+        --text-color-links: #333;
+    }
+}
 /* Reset CSS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* Evita problemas de layout devido ao padding e border */
 }
-
 body {
     transition: display 0.3s ease;
     font-family: var(--font-custom);
     font-size: var(--font-base);
+    color: var(--text-color);
     line-height: 1.5;
     letter-spacing: 0.1vw;
     background-color: var(--body-backgroud-color);
     
 }
-/* Outras regras de estilo personalizadas */
-/* ... */

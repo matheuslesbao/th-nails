@@ -29,6 +29,7 @@
     <!-- JS -->
     <script type="text/javascript" src="/assets/js/menu.js"></script>
     <script type="text/javascript" src="/assets/js/slideshow.js"></script>
+    <!-- <script type="text/javascript" src="/assets/js/dark-mode.js"></script> -->
 </body>
 
 </html>
