@@ -2,7 +2,7 @@ footer {
     width: 100%;
     left: 0;
     bottom: 0;
-    background-color: var(--footer-background-color);
+    background-color: var(--header-footer-color);
     color: var(--text-color);
     padding: 20px;
 }

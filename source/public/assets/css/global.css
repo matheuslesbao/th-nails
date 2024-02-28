@@ -2,40 +2,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&family=Shrikhand&display=swap');
 :root {
     /* Cores principais */
-    --primary-color: #FFCCCC; 
+    --primary-color: #fed8d8; 
     --secondary-color: #ADD8E6;
      /* Cores de fundo */
-    --body-backgroud-color: #FFFAF0;
-    --body2-backgroud-color: #f0f0f0;
-    --header-background-color: #ADD8E6;
-    --footer-background-color:  #ADD8E6;
-    --menu-background-color: #333;
+    --body-backgroud-color: #eff2f5;
+    --header-footer-color: #ADD8E6 ;
     /* Cores de texto */
-    --text-color:#333;
-    --text-color-links: #333;
+    --text-color:#6c6c6c;
+    --text-color-links: #2e2e2e;
     /* Cores de status sucesso, aviso e erro*/
     --status-sucess: #28a745;
     --status-error: #dc3545;
-
+/* Text */
     --font-base: 16px;
     --font-custom:"Karma", serif; 
     --font-custom2: "Shrikhand", serif;
     --font-logo: ;
 }
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: 0) {
     :root {
         /* Cores principais */
         --primary-color: #add8e6b6; 
-        --secondary-color: #ADD8E6;
+        --secondary-color: #add8e6b6;
          /* Cores de fundo */
         --body-backgroud-color: #333;
-        --body2-backgroud-color: #333;
-        --header-background-color: #ADD8E6;
-        --footer-background-color:  #ADD8E6;
-        --menu-background-color: #333;
+        --header-footer-color: #6fa8dc ;
         /* Cores de texto */
-        --text-color:#FFFAF0;
-        --text-color-links: #333;
+        --text-color:#fff;
+        --text-color-links: #fff;
     }
 }
 /* Reset CSS */
