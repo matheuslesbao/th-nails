@@ -38,10 +38,12 @@ class Router
     {
         return [
             'get' => [
-                '/' => fn() =>  self::load('HomeController', 'index')
+                '/' => fn() =>  self::load('HomeController', 'index'),
+                '/login' => fn() => self::load('LoginController','index'),
+                '/dashboard' => fn() => self::load('DashboardController','index'),
             ],
             'post' => [
-                
+                '/login' => fn() => self::load('LoginController','login'),
             ]
 
         ];
@@ -52,7 +54,6 @@ class Router
             $routes = self::routes();
             $request = Request::get();
             $uri = Uri::get('path');
-            //se a requisição(get,post,put, delete) nao existir nas rotas ira da um erro
             if(!isset($routes[$request])){
                 throw new Exception("Error route {$uri} not found", 1); 
             }

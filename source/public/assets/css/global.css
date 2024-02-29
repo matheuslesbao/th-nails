@@ -4,6 +4,7 @@
     /* Cores principais */
     --primary-color: #fed8d8; 
     --secondary-color: #ADD8E6;
+    --other-color: rgba(133, 55, 55, 0.904);
      /* Cores de fundo */
     --body-backgroud-color: #eff2f5;
     --header-footer-color: #ADD8E6 ;
@@ -19,11 +20,12 @@
     --font-custom2: "Shrikhand", serif;
     --font-logo: ;
 }
-@media (prefers-color-scheme: 0) {
+@media (prefers-color-scheme: dark) {
     :root {
         /* Cores principais */
         --primary-color: #add8e6b6; 
-        --secondary-color: #add8e6b6;
+        --secondary-color:  rgb(235, 205, 205);
+        --other-color: rgba(92, 54, 102, 0.904);
          /* Cores de fundo */
         --body-backgroud-color: #333;
         --header-footer-color: #6fa8dc ;
@@ -49,7 +51,15 @@ body {
     
 }
 section h3 {
-    color: rgba(133, 55, 55, 0.904) !important;
+    color: var(--other-color) !important;
+}
+a {
+  text-decoration: none;
+  color: var(--text-color-links);
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 7px;
+  transition: background-color 0.7s;
 }
 
 @media screen and (max-width: 215px) {

@@ -1,0 +1,64 @@
+main {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+section {
+    width: 80%;
+    max-width: 700px;
+    display: flex;
+    height: 280px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(247, 197, 232, 0.63);
+    border-radius: 5px;
+}
+section div {
+    text-align: center;
+    width: 55%;
+}
+.btn {
+    background-color: #999694; /* Cor de fundo do botão */
+    color: #1b1b1b; /* Cor do texto */
+    border: none;
+    border-radius: 20px;
+    padding: 5px calc(1vw + 21px);
+    margin-top: 7px;
+    cursor: pointer;
+    outline: none;
+    font-weight: bold;
+    transition: background-color 0.7s;
+}
+form  {
+    width: 222px;
+    height: 255px;
+    padding: 27px;
+    margin: 16px;
+    background-color: rgb(198, 230, 219);
+    border-radius: 5px;
+}
+form label {
+    text-align: start;
+}
+form h1 {
+    text-align: center;
+}
+.container-btn {
+    display: flex;
+}
+.btn {
+    padding: 5px calc(1vw + 10px);
+    margin: 7px 2px;
+}
+.btn:hover {
+    background-color: #e3c8e4;
+  }
+.btn:hover::before {
+    transform: translate(-50%, -50%) scale(3);
+  }
+@media screen and (max-width: 652px) {
+    section {
+        height: 500px;
+        flex-direction: column;
+    }
+ }
