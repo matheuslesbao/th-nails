@@ -104,4 +104,49 @@ main {
   }
  }
 
+  /* Social Media */
+  .social-media {
+    background-color: var(--primary-color);
+      margin: 10px -5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+  }
+  .social-media h3 {
+      text-align: center;
+      font-family: var(--font-custom2);
+      font-size: 2rem;
+      color: var(--text-color-links);
+  }
+  .container-social-media {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(205px + 15%), 1fr));
+    align-items: center;
+    justify-items: center;
+    }
+
+  .medias {
+      width: 90%;
+      text-align: center;
+    }
+  .medias > p:last-of-type {
+    font-size: calc(var(--font-base) + 5px);
+      font-weight: bold;
+  }
   
+  .medias img {
+      min-width: 66%;
+      max-width: 70%;
+      border-radius: 5px;
+    }
+    
+    @media screen and (max-width: 810px) {
+      .container-social-media {
+      flex-wrap: wrap;
+      flex-direction: column;
+          
+      }
+      .medias {
+        display: block;
+        height: auto;
+      }
+     }

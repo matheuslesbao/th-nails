@@ -9,8 +9,8 @@
         <h2>Pé e Mão</h2>
         <p>Serviço de completo, incluido esmaltação, corte.</p>
         <p>R&#36;: 38,00</p>
-    
-    <button class="whatsapp-button">
+
+        <button class="whatsapp-button">
           <span class="whatsapp-icon"></span>
           <a class="whatsapp-text">Pé e Mão</a>
         </button>
@@ -77,6 +77,35 @@
       <div class="depo">
         <img width="356" height="254" src="/assets/img/depo01.jpg" alt="Imagem 1">
       </div>
+    </div>
+  </section>
+  <section class="social-media">
+    <h3>Galeria</h3>
+    <div class="container-social-media">
+      
+        <div class="medias">
+          <img src="/assets/img/exemplo2.jpg" alt="Imagem 3">
+        </div>
+        <div class="medias">
+          <img src="/assets/img/exemplo.jpg" alt="Imagem 1">
+        </div>
+        <div class="medias">
+          <img src="/assets/img/exemplo3.jpg" alt="Imagem 3">
+        </div>
+
+      
+        <div class="medias">
+          <img src="/assets/img/exemplo2.jpg" alt="Imagem 3">
+        </div>
+        <div class="medias">
+          <img src="/assets/img/exemplo.jpg" alt="Imagem 1">
+        </div>
+        <div class="medias">
+          <img src="/assets/img/exemplo3.jpg" alt="Imagem 3">
+        </div>
+      
+
+    </div>
     </div>
   </section>
 </main>

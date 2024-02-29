@@ -7,12 +7,27 @@
     <nav class="menu">
         <div class="logo">Thamires Guimarães</div>
         <ul class="links">
-            <li><a href="#">Inicio</a></li>
-            <li><button class="whatsapp-button">
+          
+          <li>
+                <a href="#">Inicio</a>
+            </li>
+            <li>
+                <button class="whatsapp-button">
                     <span class="whatsapp-icon"></span>
                     <a class="whatsapp-text">Whatsapp</a>
-                </button></li>
+                </button>
+            </li>
         </ul>
+        <div class="social-icon"> 
+            <!-- Social Medias -->
+        
+                <a href="https://www.instagram.com/seu_usuario_instagram" >
+                    <img width="25" height="25" src="/assets/img/instagram-icon.png" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/seu_usuario_facebook" >
+                    <img width="25" height="25" src="/assets/img/facebook-icon.png" alt="Facebook">
+                </a>
+            </div>
     </nav>
 </header>
 
