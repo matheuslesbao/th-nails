@@ -19,7 +19,6 @@ main {
     flex-wrap: nowrap;
   }
 .card {
-    padding: 20px;
     width: 100%;
     display: flex;
     text-align: center;
