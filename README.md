@@ -30,7 +30,7 @@ aplicação está disponível em [http://localhost:8000](http://localhost:8000)
 ## Modelagem de dados
 
 ```markdown
-# Tabela: exemplo
+# Tabela: users
 
 | Coluna      | Tipo          | Constraint
 |-------------|---------------|-------------
@@ -39,5 +39,6 @@ aplicação está disponível em [http://localhost:8000](http://localhost:8000)
 | username    | VARCHAR       | UK
 | email       | VARCHAR (255) | UK
 | password    | VARCHAR (255) |
+| created_at  | TIMESTAMP     |
 
 ```
