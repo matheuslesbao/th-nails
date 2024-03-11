@@ -1,17 +1,18 @@
 <?php
 
-namespace app\router;
-use app\helpers\Request;
-use app\helpers\Uri;
-
+namespace app\config\router;
 use Exception;
+use ReflectionClass;
+use app\presentation\helpers\Uri;
+use app\presentation\helpers\Request;
 
 class Router
 {
+    
     //constante que procura o namespace na pasta controller
     const CONTROLLER_NAMESPACE = 'app\\controllers';
     // load procura o controller e o metodos nas requisiçoes http
-    public static function load(string $controller, string $method)
+    public static function load(string $controller, string $method, $arguments = [])
     {
         try {
             // verificar se o controller existe, se nao existir ja lança o erro
@@ -20,8 +21,10 @@ class Router
                 throw new Exception("The Controller {$controller} not found");
             }
             // se existir ira criar uma instancia do controller existente
-            $controllerInstance = new $controllerNamespace;
-
+            //  $controllerInstance = new $controllerNamespace;
+            $controllerReflection = new ReflectionClass($controllerNamespace);
+            $controllerInstance = $controllerReflection->newInstanceArgs($arguments);
+            
             // Agora verificar se existe o method
             // a função method_exist pede uma instacia do controler
             if (!method_exists($controllerInstance, $method)) {
@@ -41,6 +44,7 @@ class Router
                 '/' => fn() =>  self::load('HomeController', 'index'),
                 '/login' => fn() => self::load('LoginController','index'),
                 '/dashboard' => fn() => self::load('DashboardController','index'),
+                '/customer' => fn() => self::load('CustomerController','index'),
             ],
             'post' => [
                 '/login' => fn() => self::load('LoginController','login'),

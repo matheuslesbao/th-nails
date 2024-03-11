@@ -13,6 +13,7 @@ services:
             - MYSQL_ROOT_PASSWORD=passroot
             - MYSQL_DATABASE=th_nails
             - MYSQL_USER=alphard
+            - MYSQL_PASSWORD=teste
         ports:
             - '8002:3306'
 

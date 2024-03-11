@@ -27,7 +27,7 @@
         --secondary-color:  rgb(235, 205, 205);
         --other-color: rgba(92, 54, 102, 0.904);
          /* Cores de fundo */
-        --body-backgroud-color: #333;
+        --body-backgroud-color: #151414;
         --header-footer-color: #6fa8dc ;
         /* Cores de texto */
         --text-color:#fff;
@@ -61,13 +61,22 @@ a {
   padding: 7px;
   transition: background-color 0.7s;
 }
-
-@media screen and (max-width: 215px) {
-   body {
-    width: calc(82vw + 106%);
-   }
+/* BUTTON CUSTOM PRINCIPAL */
+.btn {
+  border: none;
+  border-radius: 20px;
+  padding: 2px calc(1vw + 10px);
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+  transition: background-color 0.7s;
 }
-
+.btn:hover {
+  background-color: #e3c8e4;
+}
+.btn:hover::before {
+  transform: translate(-50%, -50%) scale(3);
+}
 
 /* Whatsapp BTN */
 .whatsapp-button {

@@ -19,6 +19,7 @@
 <body>
     <?= $this->section('content') ?>
     <!-- JS -->
+    <script src="/assets/js/admin/script.js"></script>
 </body>
 
 </html>

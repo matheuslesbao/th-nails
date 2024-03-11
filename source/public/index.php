@@ -1,5 +1,6 @@
 <?php
-use app\router\Router;
+
+use app\config\router\Router;
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);

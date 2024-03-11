@@ -6,7 +6,7 @@ abstract class Controller
 {
     protected function view(string $view, array $data = [])
     {
-        $pathViews = dirname(__FILE__, 2) . DIRECTORY_SEPARATOR. 'views' ;
+        $pathViews = dirname(__FILE__, 2) . DIRECTORY_SEPARATOR. 'presentation/views' ;
         // Create new Plates instance
         $templates = new Engine($pathViews);
 
