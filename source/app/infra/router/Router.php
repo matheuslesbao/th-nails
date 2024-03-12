@@ -1,6 +1,6 @@
 <?php
 
-namespace app\config\router;
+namespace app\infra\router;
 use Exception;
 use ReflectionClass;
 use app\presentation\helpers\Uri;
@@ -48,6 +48,7 @@ class Router
             ],
             'post' => [
                 '/login' => fn() => self::load('LoginController','login'),
+                '/customer' => fn() => self::load('CustomerController', 'create'),
             ]
 
         ];
@@ -67,7 +68,6 @@ class Router
             }
 
             $router = $routes[$request][$uri];
-            //Verifcar se é uma função executavel
             if(!is_callable($router)){
                 throw new Exception("Error route {$uri} is not callable", 1);
             }
