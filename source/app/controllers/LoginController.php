@@ -4,9 +4,9 @@ namespace app\controllers;
 
 use Exception;
 use app\controllers\Controller;
-use app\core\usecase\UserUseCase;
-use app\domain\service\UserService;
-use app\domain\repository\UserRepository;
+use app\core\usecase\user\UserUseCase;
+use app\domain\service\user\UserService;
+use app\domain\repository\user\UserRepository;
 
 class LoginController extends Controller
 {

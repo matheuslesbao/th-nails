@@ -1,7 +1,7 @@
 <?php 
-namespace app\core\usecase;
+namespace app\core\usecase\User;
 
-use app\domain\service\UserServiceInterface as IUserService;
+use app\domain\service\user\UserServiceInterface as IUserService;
 
 class UserUseCase {
     private $userService;
