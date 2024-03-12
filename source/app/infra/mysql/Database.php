@@ -36,7 +36,7 @@ abstract class Database
           AUTO_INCREMENT=1; ";
 
         $createTableCustomers = " CREATE TABLE `customers` (
-            `id` INT(11) NOT NULL,
+            `id` INT(11) NOT NULL AUTO_INCREMENT,
             user_id INT NOT NULL,
             nome VARCHAR(100) NOT NULL,
             email VARCHAR(100),
