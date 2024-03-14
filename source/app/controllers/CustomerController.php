@@ -49,7 +49,7 @@ class CustomerController extends Controller
             // Filtra e valida os dados do formulário
             $name = $_POST['name'];
             $number = filter_input(INPUT_POST, 'number', FILTER_SANITIZE_NUMBER_INT);
-    
+            $address = $_POST['address'];
             if (!$name || !$number) {
                 throw new Exception("Nome e número são obrigatórios");
             }
@@ -57,7 +57,8 @@ class CustomerController extends Controller
             $customer = new Customer();
             $customer->setName($name);
             $customer->setNumber($number);
-            $customer->setUserId($userId); // Define o ID do usuário
+            $customer->setUserId($userId);
+            $customer->setAddress($address);
             // Registra o cliente usando o caso de uso
             $this->customerUseCase->registerCustomerUseCase($customer);
             header("Location: /customer");

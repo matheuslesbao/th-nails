@@ -21,9 +21,9 @@
             <label for="name">Cliente</label>
             <input type="text" placeholder="Nome" name="name">
             <br>
-            <!-- <label for="email">Email</label>
-    <input type="email" placeholder="Email" name="email">
-    <br> -->
+            <label for="address">Endereço</label>
+    <input type="text" placeholder="Endereço" name="address">
+    <br>
             <label for="number">Telefone\Celular</label>
             <input type="text" placeholder="(00) 99999-9999" name="number">
             <br>
@@ -40,6 +40,7 @@
                     <div>
                     <p>Nome: <?php echo $customer['nome']; ?></p>
                     <p>Número: <?php echo $customer['telefone']; ?></p>
+                    <p>Endereço: <?php echo $customer['address'] ?? 'Sem Endereço'; ?></p>
                     </div>
                     </div>
                     

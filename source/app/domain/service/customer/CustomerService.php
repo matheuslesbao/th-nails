@@ -20,10 +20,11 @@ class CustomerService implements CustomerServiceInterface
         $customer->setCreatedAt(date('Y-m-d H:i:s'));
         //INSERIR Usuario NO BANCO
         $this->customerRepository->insert([
-            'user_id' => $customer->getUserId(),
-            'nome'  => $customer->getName(),
+            'user_id'  => $customer->getUserId(),
+            'nome'     => $customer->getName(),
             'telefone' => $customer->getNumber(),
-            'created_at'  => $customer->getCreatedAt()
+            'created_at'  => $customer->getCreatedAt(),
+            'address'  => $customer->getAddress(),
         ]);
 
         //RETORNAR USUÁRIO
@@ -40,6 +41,7 @@ class CustomerService implements CustomerServiceInterface
                 'nome' => $customer->getName(),
                 'telefone' => $customer->getNumber(),
                 'created_at' => $customer->getCreatedAt(),
+                'address' => $customer->getAddress(),
             ];
         }
         return $customerInfo;

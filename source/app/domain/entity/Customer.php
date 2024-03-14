@@ -9,6 +9,7 @@ class Customer
   private $email;
   private $telefone;
   private $created_at;
+  private $address;
 
   public function getId(): ?int
   {
@@ -50,6 +51,14 @@ public function setUserId(int $user_id): void {
 
   public function setCreatedAt(string $created_at):void {
     $this->created_at = $created_at;
+  }
+  public function getAddress(): ?string
+  {
+      return $this->address;
+  }
+
+  public function setAddress(string $address):void {
+    $this->address = $address;
   }
 
 }
