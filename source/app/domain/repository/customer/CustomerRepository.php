@@ -55,7 +55,7 @@ class CustomerRepository extends Database implements CustomerRepositoryInterface
     }
     public function findByUserId(int $user_id): ?array
     {
-        $query = "SELECT * FROM {$this->table} WHERE user_id = :user_id ";
+        $query = "SELECT * FROM {$this->table} WHERE user_id = :user_id ORDER BY nome ";
         $params = ['user_id' => $user_id];
         $result = $this->execute($query, $params);
         
