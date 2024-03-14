@@ -38,7 +38,8 @@ class CustomerService implements CustomerServiceInterface
         foreach ($customers as $customer) {
             $customerInfo[] = [
                 'nome' => $customer->getName(),
-                'telefone' => $customer->getNumber()
+                'telefone' => $customer->getNumber(),
+                'created_at' => $customer->getCreatedAt(),
             ];
         }
         return $customerInfo;

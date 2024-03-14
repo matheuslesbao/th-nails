@@ -44,7 +44,7 @@
                     </div>
                     
                    <div class="card-customer__info2">
-                    <p>Teste</p>
+                    <!-- <p><?php echo $customer['created_at']?></p> -->
                    <a href="https://api.whatsapp.com/send?phone=<?php echo $customer['telefone']; ?>" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
