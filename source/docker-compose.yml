@@ -25,11 +25,22 @@ services:
             - './phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf'
         depends_on:
             - mysql
+            - php-fpm1
+            - php-fpm2
         ports:
             - '8000:80'
 
-    php-fpm:
+     php-fpm1:
         build: phpdocker/php-fpm
+        container_name: php-fpm1
+        working_dir: /app
+        volumes:
+            - '.:/app'
+            - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.3/fpm/conf.d/99-overrides.ini'
+
+    php-fpm2:
+        build: phpdocker/php-fpm
+        container_name: php-fpm2
         working_dir: /app
         volumes:
             - '.:/app'
