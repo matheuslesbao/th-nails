@@ -22,7 +22,7 @@ abstract class Database
         $result = $this->connection->query($showTable);
         if (!$result->rowCount() > 0) {
             $createTableUsers = " CREATE TABLE `users` (
-            `id` INT(11) NOT NULL AUTO_INCREMENT,
+            `user_id` INT(11) NOT NULL AUTO_INCREMENT,
             `name` VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
             `username` VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
             `password` VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
@@ -37,12 +37,12 @@ abstract class Database
 
         $createTableCustomers = " CREATE TABLE `customers` (
             `id` INT(11) NOT NULL AUTO_INCREMENT,
-            user_id INT NOT NULL,
-            nome VARCHAR(100) NOT NULL,
-            email VARCHAR(100),
-            telefone VARCHAR(20),
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+            `user_id`INT NOT NULL,
+            `nome` VARCHAR(100) NOT NULL,
+            `address` VARCHAR(100),
+            `telefone` VARCHAR(20),
+            `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
           )
           COLLATE='utf8_general_ci'
           ENGINE=InnoDB; ";
