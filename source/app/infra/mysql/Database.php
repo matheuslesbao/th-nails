@@ -1,4 +1,5 @@
 <?php
+
 namespace app\infra\mysql;
 use \PDO;
 use \PDOException;
@@ -10,9 +11,7 @@ abstract class Database
     private static $user = 'alphard';
     private static $pass = 'teste';
     public $table;
-    private $charset = 'utf8mb4';
     public $connection;
-
     public function __construct($table = null)
     {
         $this->connection = new PDO('mysql:host=' . self::$host . ';dbname=' . self::$dbname, self::$user, self::$pass);
@@ -34,30 +33,35 @@ abstract class Database
           COLLATE='utf8_general_ci'
           ENGINE=InnoDB
           AUTO_INCREMENT=1; ";
-
+    
         $createTableCustomers = " CREATE TABLE `customers` (
             `id` INT(11) NOT NULL AUTO_INCREMENT,
-            `user_id`INT NOT NULL,
+            `user_id` INT NOT NULL,
             `nome` VARCHAR(100) NOT NULL,
             `address` VARCHAR(100),
             `telefone` VARCHAR(20),
             `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
+        FOREIGN KEY (user_id) REFERENCES users(user_id)
           )
           COLLATE='utf8_general_ci'
           ENGINE=InnoDB; ";
-            $result = $this->connection->query($createTableUsers);
-            $result = $this->connection->query($createTableCustomers);
-            
+            $resultUsers = $this->connection->query($createTableUsers);
+            $resultCustomers = $this->connection->query($createTableCustomers);
+
+            if (!$resultUsers || !$resultCustomers) {
+                throw new PDOException("Erro ao criar tabelas");
+            }
         }
         $this->table = $table;
         $this->setConnection();
     }
-
     public function setConnection()
     {
         try {
-            $this->connection = new PDO('mysql:host=' . self::$host . ';dbname=' . self::$dbname, self::$user, self::$pass);
+            $this->connection = new PDO(
+            'mysql:host=' . self::$host .
+            ';dbname=' . self::$dbname,
+            self::$user, self::$pass);
 
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $th) {

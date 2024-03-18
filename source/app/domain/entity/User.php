@@ -1,18 +1,19 @@
 <?php
+
 namespace app\domain\entity;
 
 class User
 {
-  private $user_id;
+  private $userId;
   private $name;
   private $username;
   private $password;
   private $email;
-  private $created_at;
+  private $createdAt;
 
   public function getId(): int
   {
-      return $this->user_id;
+      return $this->userId;
   }
 
   public function getName(): string
@@ -51,11 +52,11 @@ class User
 
   public function getCreatedAt(): string
   {
-      return $this->created_at;
+      return $this->createdAt;
   }
 
-  public function setCreatedAt(string $created_at):void {
-    $this->created_at = $created_at;
+  public function setCreatedAt(string $createdAt):void {
+    $this->createdAt = $createdAt;
   }
 
 }

@@ -5,7 +5,8 @@ namespace app\domain\repository\customer;
 use app\domain\entity\Customer;
 use app\infra\mysql\Database;
 
-class CustomerRepository extends Database implements CustomerRepositoryInterface{
+class CustomerRepository extends Database implements CustomerRepositoryInterface
+{
     public function __construct()
     {
         // Chama o construtor da classe pai para inicializar a conexão com o banco de dados
@@ -16,7 +17,8 @@ class CustomerRepository extends Database implements CustomerRepositoryInterface
     {
         $fields = array_keys($values);
         $binds = array_pad([], count($fields), '?');
-        $query = 'INSERT INTO ' . $this->table . ' (' . implode(',', $fields) . ') VALUES (' . implode(',', $binds) . ')';
+        $query = 'INSERT INTO ' . $this->table . ' (' . implode(',', $fields) . ') 
+                            VALUES (' . implode(',', $binds) . ')';
         $this->execute($query, array_values($values));
         return $this->connection->lastInsertId();
     }
@@ -28,7 +30,7 @@ class CustomerRepository extends Database implements CustomerRepositoryInterface
         $query = 'SELECT ' . $fields . ' FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit;
         return $this->execute($query);
     }
-    public function findById( $id = null): ?Customer
+    public function findById($id = null): ?Customer
     {
         $query = 'SELECT * FROM ' . $this->table . ' WHERE id = :id ';
         $params = ['id' => $id];
@@ -46,25 +48,26 @@ class CustomerRepository extends Database implements CustomerRepositoryInterface
         $query = "SELECT * FROM {$this->table} WHERE email = :email ";
         $params = ['email' => $email];
         $result = $this->execute($query, $params);
-    
-    if ($result->rowCount() > 0) {
-        return $result->fetchObject(Customer::class);
-    } else {
-        return null;
-    }
+
+        if ($result->rowCount() > 0) {
+            return $result->fetchObject(Customer::class);
+        } else {
+            return null;
+        }
     }
     public function findByUserId(int $user_id): ?array
     {
-        $query = "SELECT * FROM {$this->table} WHERE user_id = :user_id ORDER BY nome ";
+        $query = "SELECT * FROM {$this->table} 
+                            WHERE user_id = :user_id ORDER BY nome ";
         $params = ['user_id' => $user_id];
         $result = $this->execute($query, $params);
-        
-    $customers = [];
-    while ($row = $result->fetchObject(Customer::class)) {
-        $customers[] = $row;
-    }
 
-    return $customers;
+        $customers = [];
+        while ($row = $result->fetchObject(Customer::class)) {
+            $customers[] = $row;
+        }
+
+        return $customers;
     }
     public function update($where, $values): bool
     {
@@ -73,7 +76,7 @@ class CustomerRepository extends Database implements CustomerRepositoryInterface
         $this->execute($query, array_values($values));
         return true;
     }
-    public function delete($where):bool
+    public function delete($where): bool
     {
         $query = 'DELETE FROM ' . $this->table . ' WHERE ' . $where;
         $this->execute($query);
