@@ -33,7 +33,7 @@ class CustomerController extends Controller
             $customers = $this->customerUseCase->getCustomersUseCase($userId);
         } catch (\Throwable $th) {
             echo "Erro ao obter clientes: " . $th->getMessage();
-        exit(); // Encerre a execução ou redirecione para uma página de erro
+        exit();
         }
       
         $this->view('customer', ['customers' => $customers]);
@@ -44,16 +44,15 @@ class CustomerController extends Controller
             if (!isset($_SESSION['auth'])) {
                 throw new Exception("Usuário não autenticado");
             }
-    
             $userId = $_SESSION['auth']->getId();
-            // Filtra e valida os dados do formulário
             $name = $_POST['name'];
             $number = filter_input(INPUT_POST, 'number', FILTER_SANITIZE_NUMBER_INT);
             $address = $_POST['address'];
+            
             if (!$name || !$number) {
                 throw new Exception("Nome e número são obrigatórios");
             }
-            // Cria um novo objeto Customer e define seus atributos
+
             $customer = new Customer();
             $customer->setName($name);
             $customer->setNumber($number);
