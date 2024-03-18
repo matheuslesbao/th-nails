@@ -6,7 +6,6 @@ class Customer
   private $id;
   private $user_id;
   private $nome;
-  private $email;
   private $telefone;
   private $created_at;
   private $address;
@@ -34,9 +33,6 @@ public function setUserId(int $user_id): void {
   }
   public function setName(string $nome): void {
     $this->nome = $nome;
-  }
-  public function getEmail(): string {
-    return $this->email;
   }
 
   public function getNumber(): string
