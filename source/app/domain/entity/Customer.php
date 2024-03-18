@@ -4,10 +4,10 @@ namespace app\domain\entity;
 class Customer
 {
   private $id;
-  private $user_id;
+  private $userId;
   private $nome;
   private $telefone;
-  private $created_at;
+  private $createdAt;
   private $address;
 
   public function getId(): ?int
@@ -18,14 +18,14 @@ class Customer
     $this->id = $id;
   }
   public function getUserID(): int {
-    return $this->user_id;
+    return $this->userId;
   }
   public function setNumber(string $telefone): void {
     $this->telefone = $telefone;
 }
 
-public function setUserId(int $user_id): void {
-    $this->user_id = $user_id;
+public function setUserId(int $userId): void {
+    $this->userId = $userId;
 }
   public function getName(): string
   {
@@ -42,11 +42,11 @@ public function setUserId(int $user_id): void {
 
   public function getCreatedAt(): string
   {
-      return $this->created_at;
+      return $this->createdAt;
   }
 
-  public function setCreatedAt(string $created_at):void {
-    $this->created_at = $created_at;
+  public function setCreatedAt(string $createdAt):void {
+    $this->createdAt = $createdAt;
   }
   public function getAddress(): ?string
   {
