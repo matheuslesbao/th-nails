@@ -3,7 +3,7 @@ namespace app\domain\entity;
 
 class User
 {
-  private $id;
+  private $user_id;
   private $name;
   private $username;
   private $password;
@@ -12,7 +12,7 @@ class User
 
   public function getId(): int
   {
-      return $this->id;
+      return $this->user_id;
   }
 
   public function getName(): string
