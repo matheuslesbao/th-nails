@@ -1,7 +1,5 @@
-###############################################################################
-#                          Generated on phpdocker.io                          #
-###############################################################################
 version: '3.1'
+
 services:
     mysql:
         image: 'mysql:8.0'
@@ -10,12 +8,38 @@ services:
         volumes:
             - '.:/app'
         environment:
-            - MYSQL_ROOT_PASSWORD=passroot
-            - MYSQL_DATABASE=th_nails
-            - MYSQL_USER=alphard
-            - MYSQL_PASSWORD=teste
-        ports:
-            - '8002:3306'
+            - MYSQL_ROOT_PASSWORD=DB_PASS_ROOT
+            - MYSQL_DATABASE=DB_HOST
+            - MYSQL_USER=DB_USER
+            - MYSQL_PASSWORD=DB_PASS
+        networks:
+            - proxy
+
+
+    php-fpm1:
+        build: phpdocker/php-fpm
+        container_name: php-fpm1
+        working_dir: /app
+        volumes:
+            - '.:/app'
+            - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.3/fpm/conf.d/99-overrides.ini'
+        networks:
+            - proxy
+        deploy:
+            resources:
+                limits:
+                    cpus: "1.6"
+                    memory: "300MB"
+
+    php-fpm2:
+        build: phpdocker/php-fpm
+        container_name: php-fpm2
+        working_dir: /app
+        networks:
+            - proxy
+        volumes:
+            - '.:/app'
+            - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.3/fpm/conf.d/99-overrides.ini'
 
     webserver:
         image: 'nginx:alpine'
@@ -29,29 +53,13 @@ services:
             - php-fpm2
         ports:
             - '8000:80'
+        networks:
+            - proxy
         deploy:
             resources:
                 limits:
                     cpus: "0.37"
                     memory: "30MB"
-
-    php-fpm1:
-        build: phpdocker/php-fpm
-        container_name: php-fpm1
-        working_dir: /app
-        volumes:
-            - '.:/app'
-            - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.3/fpm/conf.d/99-overrides.ini'
-        deploy:
-            resources:
-                limits:
-                    cpus: "1.6"
-                    memory: "300MB"
-
-    php-fpm2:
-        build: phpdocker/php-fpm
-        container_name: php-fpm2
-        working_dir: /app
-        volumes:
-            - '.:/app'
-            - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.3/fpm/conf.d/99-overrides.ini'
+networks:
+    proxy:
+        driver: bridge
