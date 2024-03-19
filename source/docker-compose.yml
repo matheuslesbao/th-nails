@@ -9,9 +9,12 @@ services:
             - '.:/app'
         environment:
             - MYSQL_ROOT_PASSWORD=DB_PASS_ROOT
-            - MYSQL_DATABASE=DB_HOST
+            - MYSQL_DATABASE=DB_NAME
             - MYSQL_USER=DB_USER
             - MYSQL_PASSWORD=DB_PASS
+        ports:
+            - '8002:3306'
+
         networks:
             - proxy
 
