@@ -55,7 +55,7 @@ class CustomerRepository extends Database implements CustomerRepositoryInterface
             return null;
         }
     }
-    public function findByuser_id(int $user_id): ?array
+    public function findByUserId(int $user_id): ?array
     {
         $query = "SELECT * FROM {$this->table}
                             WHERE user_id = :user_id ORDER BY nome ";
