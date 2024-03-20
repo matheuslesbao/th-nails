@@ -2,8 +2,9 @@
 
 namespace app\domain\repository\customer;
 
-use app\domain\entity\Customer;
+use PDOException;
 use app\infra\mysql\Database;
+use app\domain\entity\Customer;
 
 class CustomerRepository extends Database implements CustomerRepositoryInterface
 {
@@ -76,10 +77,9 @@ class CustomerRepository extends Database implements CustomerRepositoryInterface
         $this->execute($query, array_values($values));
         return true;
     }
-    public function delete($where): bool
+    public function delete($where): void
     {
         $query = 'DELETE FROM ' . $this->table . ' WHERE ' . $where;
         $this->execute($query);
-        return true;
     }
 }

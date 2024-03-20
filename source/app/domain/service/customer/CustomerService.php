@@ -38,6 +38,7 @@ class CustomerService implements CustomerServiceInterface
         $customerInfo = [];
         foreach ($customers as $customer) {
             $customerInfo[] = [
+                'id' => $customer->getId(),
                 'nome' => $customer->getName(),
                 'telefone' => $customer->getNumber(),
                 'created_at' => $customer->getCreatedAt(),
@@ -48,5 +49,11 @@ class CustomerService implements CustomerServiceInterface
     } else {
         return null;
     }
+    }
+
+    public function deleteCustomer(int $id): void
+    {
+        $customer = $this->customerRepository->findById($id);
+        $this->customerRepository->delete('id = '. $customer->getId());
     }
 }

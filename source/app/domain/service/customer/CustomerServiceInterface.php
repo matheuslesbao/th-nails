@@ -9,4 +9,5 @@ interface CustomerServiceInterface
 {
     public function registerCustomer(Customer $customer): ?Customer ;
     public function getCustomers(int $user_id): ?array;
+    public function deleteCustomer(int $id): void;
 }

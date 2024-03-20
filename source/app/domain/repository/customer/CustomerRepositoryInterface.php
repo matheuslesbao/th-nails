@@ -7,7 +7,7 @@ use app\domain\entity\Customer;
 interface CustomerRepositoryInterface
 {
     function insert($values): string;
-    function delete(int $id): bool ;
+    function delete(int $id): void ;
     function update($where, $values): bool ;
     function findById (int $id): ?Customer ;
     function findByUserId(int $user_id): ?array ;

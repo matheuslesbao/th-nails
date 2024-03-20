@@ -46,15 +46,18 @@ class CustomerController extends Controller
                 session_destroy();
                 throw new Exception("Usuário não autenticado");
             }
+           
             $user_id = $_SESSION['auth']->getId();
-            $name = $_POST['name'];
+            $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
             $number = filter_input(INPUT_POST, 'number', FILTER_SANITIZE_NUMBER_INT);
-            $address = $_POST['address'];
+            $address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_SPECIAL_CHARS);
             
             if (!$name || !$number) {
-                throw new Exception("Nome e número são obrigatórios");
+                echo "Opa! Nome e número são obrigatórios:</p>";
+                header('location: /customer');
+                die();
             }
-
+           
             $customer = new Customer();
             $customer->setName($name);
             $customer->setNumber($number);
@@ -68,5 +71,31 @@ class CustomerController extends Controller
             // Trata qualquer exceção ocorrida durante o processo
             echo "Erro ao criar cliente: " . $err->getMessage();
         }
+    }
+    public function delete($params) {
+        session_start();
+        try {
+            if (!isset($_SESSION['auth'])) {
+                session_destroy();
+                throw new Exception("Usuário não autenticado");
+            }
+            // Verifica se o ID do cliente foi fornecido na solicitação GET
+       
+        if (!isset($_POST['id-del'])) {
+            throw new Exception("ID do cliente não fornecido");
+            
+        }
+
+        // Obtém o ID do cliente da solicitação GET e valida-o
+        $customerId = filter_input(INPUT_POST, 'id-del', FILTER_VALIDATE_INT);
+        if (!$customerId) {
+            throw new Exception("ID do cliente inválido");
+        }
+
+        $this->customerUseCase->deleteCustomerUseCase($customerId);
+        header('Location: /customer');
+    } catch (Exception $err) {
+       header('Location: /customer?err');
+    }
     }
 }

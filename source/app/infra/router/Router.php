@@ -45,10 +45,12 @@ class Router
                 '/login' => fn() => self::load('LoginController','index'),
                 '/dashboard' => fn() => self::load('DashboardController','index'),
                 '/customer' => fn() => self::load('CustomerController','index'),
+                
             ],
             'post' => [
                 '/login' => fn() => self::load('LoginController','login'),
                 '/customer' => fn() => self::load('CustomerController', 'create'),
+                '/customer_delete' => fn() => self::load('CustomerController','delete'),
             ]
 
         ];
