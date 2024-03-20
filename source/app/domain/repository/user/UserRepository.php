@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace app\domain\repository\user;
 
 use app\domain\entity\User;
@@ -15,7 +16,8 @@ class UserRepository extends Database  implements UserRepositoryInterface  {
     {
         $fields = array_keys($values);
         $binds = array_pad([], count($fields), '?');
-        $query = 'INSERT INTO ' . $this->table . ' (' . implode(',', $fields) . ') VALUES (' . implode(',', $binds) . ')';
+        $query = 'INSERT INTO ' . $this->table . ' (' . implode(',', $fields) . ')
+                     VALUES (' . implode(',', $binds) . ')';
         $this->execute($query, array_values($values));
         return $this->connection->lastInsertId();
     }
@@ -29,8 +31,8 @@ class UserRepository extends Database  implements UserRepositoryInterface  {
     }
     public function findById( $id = null): ?User
     {
-        $query = 'SELECT * FROM ' . $this->table . ' WHERE id = :id ';
-        $params = ['id' => $id];
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE user_id = :user_id ';
+        $params = ['user_id' => $id];
         $result = $this->execute($query, $params);
 
         if ($result->rowCount() > 0) {

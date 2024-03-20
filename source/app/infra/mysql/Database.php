@@ -16,42 +16,6 @@ abstract class Database
     {
         $this->connection = new PDO('mysql:host=' . self::$host . ';dbname=' . self::$dbname, self::$user, self::$pass);
         $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        // Criar tables no banco de dados.
-        $showTable = "SHOW TABLES LIKE '$table' ";
-        $result = $this->connection->query($showTable);
-        if (!$result->rowCount() > 0) {
-            $createTableUsers = " CREATE TABLE `users` (
-            `user_id` INT(11) NOT NULL AUTO_INCREMENT,
-            `name` VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
-            `username` VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
-            `password` VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
-            `email` VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
-            `created_at` TIMESTAMP NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-            PRIMARY KEY (`id`) USING BTREE,
-            UNIQUE KEY `email` (`email`)
-          )
-          COLLATE='utf8_general_ci'
-          ENGINE=InnoDB
-          AUTO_INCREMENT=1; ";
-    
-        $createTableCustomers = " CREATE TABLE `customers` (
-            `id` INT(11) NOT NULL AUTO_INCREMENT,
-            `user_id` INT NOT NULL,
-            `nome` VARCHAR(100) NOT NULL,
-            `address` VARCHAR(100),
-            `telefone` VARCHAR(20),
-            `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (user_id) REFERENCES users(user_id)
-          )
-          COLLATE='utf8_general_ci'
-          ENGINE=InnoDB; ";
-            $resultUsers = $this->connection->query($createTableUsers);
-            $resultCustomers = $this->connection->query($createTableCustomers);
-
-            if (!$resultUsers || !$resultCustomers) {
-                throw new PDOException("Erro ao criar tabelas");
-            }
-        }
         $this->table = $table;
         $this->setConnection();
     }

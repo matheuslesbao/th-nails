@@ -25,7 +25,7 @@ down:
 nginx:
 	$(DOCKER) exec -it 1d6c5266c57d bash
 db-docker:
-	$(DOCKER_COMPOSE) exec mysql mysql -p
+	$(DOCKER_COMPOSE) exec mysql mysql -u alphard -p
 
 restart: stop start
 

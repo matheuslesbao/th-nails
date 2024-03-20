@@ -17,7 +17,7 @@ class CustomerRepository extends Database implements CustomerRepositoryInterface
     {
         $fields = array_keys($values);
         $binds = array_pad([], count($fields), '?');
-        $query = 'INSERT INTO ' . $this->table . ' (' . implode(',', $fields) . ') 
+        $query = 'INSERT INTO ' . $this->table . ' (' . implode(',', $fields) . ')
                             VALUES (' . implode(',', $binds) . ')';
         $this->execute($query, array_values($values));
         return $this->connection->lastInsertId();
@@ -55,9 +55,9 @@ class CustomerRepository extends Database implements CustomerRepositoryInterface
             return null;
         }
     }
-    public function findByUserId(int $user_id): ?array
+    public function findByuser_id(int $user_id): ?array
     {
-        $query = "SELECT * FROM {$this->table} 
+        $query = "SELECT * FROM {$this->table}
                             WHERE user_id = :user_id ORDER BY nome ";
         $params = ['user_id' => $user_id];
         $result = $this->execute($query, $params);

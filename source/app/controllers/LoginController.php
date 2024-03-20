@@ -12,7 +12,7 @@ class LoginController extends Controller
 {
     private $userUseCase;
 public function __construct()
-{   
+{
     $userRepository = new UserRepository();
     $this->userUseCase = new UserUseCase(new UserService($userRepository));
 }
@@ -23,8 +23,8 @@ public function __construct()
     public function login()
     {
         session_start();
-        
         try {
+
             $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
             $password = strip_tags($_POST['password']);
 
@@ -38,9 +38,11 @@ public function __construct()
             if ($password !== $user->getPassword()) {
                 throw new Exception("Senha inválida");
             }
-            $_SESSION['auth'] = $user;
+     
             
-            header("Location: /dashboard");
+            $_SESSION['auth'] = $user;
+            header('location: /dashboard');
+            
             exit();
         } catch (\Throwable $e) {
             echo "Não foi possivel fazer o Login: " . $e->getMessage();

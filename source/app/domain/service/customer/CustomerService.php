@@ -30,9 +30,9 @@ class CustomerService implements CustomerServiceInterface
         //RETORNAR USUÁRIO
         return $customer;
     }
-    public function getCustomers(int $userId): ?array
+    public function getCustomers(int $user_id): ?array
     {
-          $customers = $this->customerRepository->findByUserId($userId);
+          $customers = $this->customerRepository->findByuser_id($user_id);
 
     if ($customers) {
         $customerInfo = [];

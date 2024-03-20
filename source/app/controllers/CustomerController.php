@@ -11,7 +11,7 @@ use app\domain\service\customer\CustomerService;
 use app\domain\repository\customer\CustomerRepository;
 
 class CustomerController extends Controller
-{ 
+{
     private $customerUseCase;
 
     public function __construct()
@@ -26,11 +26,12 @@ class CustomerController extends Controller
 
         if (!isset($_SESSION['auth'])) {
             header("Location: /login?=notauth");
+            session_destroy();
             die();
         }
         try {
-            $userId = $_SESSION['auth']->getId();
-            $customers = $this->customerUseCase->getCustomersUseCase($userId);
+            $user_id = $_SESSION['auth']->getId();
+            $customers = $this->customerUseCase->getCustomersUseCase($user_id);
         } catch (\Throwable $th) {
             echo "Erro ao obter clientes: " . $th->getMessage();
         exit();
@@ -42,9 +43,10 @@ class CustomerController extends Controller
         session_start();
         try {
             if (!isset($_SESSION['auth'])) {
+                session_destroy();
                 throw new Exception("Usuário não autenticado");
             }
-            $userId = $_SESSION['auth']->getId();
+            $user_id = $_SESSION['auth']->getId();
             $name = $_POST['name'];
             $number = filter_input(INPUT_POST, 'number', FILTER_SANITIZE_NUMBER_INT);
             $address = $_POST['address'];
@@ -56,7 +58,7 @@ class CustomerController extends Controller
             $customer = new Customer();
             $customer->setName($name);
             $customer->setNumber($number);
-            $customer->setUserId($userId);
+            $customer->setUserId($user_id);
             $customer->setAddress($address);
             // Registra o cliente usando o caso de uso
             $this->customerUseCase->registerCustomerUseCase($customer);

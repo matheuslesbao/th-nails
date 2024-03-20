@@ -43,9 +43,9 @@
                     <p>Endereço: <?php echo $customer['address'] ?? 'Sem Endereço'; ?></p>
                     </div>
                     </div>
-                    
+                  
                    <div class="card-customer__info2">
-                    <!-- <p><?php echo $customer['created_at']?></p> -->
+                    <?php echo substr($customer['created_at'], 10) ?? '<p>Sem usuarios</p>'?>
                    <a href="https://api.whatsapp.com/send?phone=<?php echo $customer['telefone']; ?>" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>

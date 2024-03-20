@@ -8,7 +8,7 @@
             <li><a href="/customer">Clientes</a></li>
         </ul>
     </div>
-    <a class="btn" href="">Logout</a>
+    <a class="btn" href="/logout">Logout</a>
 </aside>
 <main>
    <section class="container-header">
