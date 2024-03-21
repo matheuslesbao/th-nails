@@ -23,17 +23,19 @@ class CustomerController extends Controller
     public function index()
     {
         session_start();
-
         if (!isset($_SESSION['auth'])) {
             header("Location: /login?=notauth");
             session_destroy();
+            http_response_code(401);
             die();
         }
         try {
             $user_id = $_SESSION['auth']->getId();
             $customers = $this->customerUseCase->getCustomersUseCase($user_id);
+            http_response_code(200);
         } catch (\Throwable $th) {
             echo "Erro ao obter clientes: " . $th->getMessage();
+            http_response_code(404);
         exit();
         }
       
@@ -43,8 +45,10 @@ class CustomerController extends Controller
         session_start();
         try {
             if (!isset($_SESSION['auth'])) {
+                header("Location: /login?=notauth");
                 session_destroy();
-                throw new Exception("Usuário não autenticado");
+                http_response_code(401);
+                die();
             }
            
             $user_id = $_SESSION['auth']->getId();
@@ -55,6 +59,7 @@ class CustomerController extends Controller
             if (!$name || !$number) {
                 echo "Opa! Nome e número são obrigatórios:</p>";
                 header('location: /customer');
+                http_response_code(401);
                 die();
             }
            
@@ -63,13 +68,13 @@ class CustomerController extends Controller
             $customer->setNumber($number);
             $customer->setUserId($user_id);
             $customer->setAddress($address);
-            // Registra o cliente usando o caso de uso
+
             $this->customerUseCase->registerCustomerUseCase($customer);
             header("Location: /customer");
-            exit();
+            http_response_code(201);
         } catch (Exception $err) {
-            // Trata qualquer exceção ocorrida durante o processo
             echo "Erro ao criar cliente: " . $err->getMessage();
+            http_response_code(400);
         }
     }
     public function delete($params) {
@@ -79,23 +84,24 @@ class CustomerController extends Controller
                 session_destroy();
                 throw new Exception("Usuário não autenticado");
             }
-            // Verifica se o ID do cliente foi fornecido na solicitação GET
        
         if (!isset($_POST['id-del'])) {
+            http_response_code(404);
             throw new Exception("ID do cliente não fornecido");
-            
         }
 
-        // Obtém o ID do cliente da solicitação GET e valida-o
         $customerId = filter_input(INPUT_POST, 'id-del', FILTER_VALIDATE_INT);
         if (!$customerId) {
+            http_response_code(404);
             throw new Exception("ID do cliente inválido");
         }
 
         $this->customerUseCase->deleteCustomerUseCase($customerId);
         header('Location: /customer');
+        http_response_code(202);
     } catch (Exception $err) {
        header('Location: /customer?err');
+       http_response_code(404);
     }
     }
 }
